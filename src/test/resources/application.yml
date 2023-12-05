@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    batch:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:batch_db:Mode=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
+      username: test
+      password: testpass
+    copy-source:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:test_db1:Mode=MySQL;DB_CLOSE_DELAY=-1
+      username: test
+      password: testpass
+      fetchsize: 1000
+    copy-to:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:test_db2:Mode=MySQL;DB_CLOSE_DELAY=-1
+      username: test
+      password: testpass
+      fetchsize: 1000
+  # @SpringBootTest で job が実行されないようにするための設定
+  batch:
+    job:
+      enabled: false
