@@ -408,7 +408,7 @@ public class ChunksJobTest {
         try {
             JobExecution jobExecution = jobLauncherTestUtils.launchJob();
             assertThat(ExitStatus.FAILED.getExitCode()).isEqualTo(jobExecution.getExitStatus().getExitCode());
-            assertThat(jobExecution.getExitStatus().getExitDescription().contains("コピー元の sample テーブルのデータを取得に失敗しました。")).isTrue();
+            assertThat(jobExecution.getExitStatus().getExitDescription().contains("Table \"SAMPLE\" not found")).isTrue();
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -434,7 +434,7 @@ public class ChunksJobTest {
         try {
             JobExecution jobExecution = jobLauncherTestUtils.launchJob();
             assertThat(ExitStatus.FAILED.getExitCode()).isEqualTo(jobExecution.getExitStatus().getExitCode());
-            assertThat(jobExecution.getExitStatus().getExitDescription().contains("コピー先の sample テーブルの truncate に失敗しました。")).isTrue();
+            assertThat(jobExecution.getExitStatus().getExitDescription().contains("Table \"SAMPLE\" not found")).isTrue();
         } catch (Exception e) {
             e.printStackTrace();
             fail();
