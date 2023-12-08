@@ -1,12 +1,12 @@
 spring:
   datasource:
     batch:
-      # Spring Batch ??????MySQL??????????
+      # Spring Batch メタデータをMySQLに保存する場合の設定
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:63306/test_db3?userCursorFetch=true
       username: test
       password: testpass
-      # Spring Batch ???????H2DB ??????????
+      # Spring Batch メタデータを　H2DB に保存する場合の設定
     #      driver-class-name: org.h2.Driver
     #      url: jdbc:h2:mem:batch_db:Mode=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
     #      username: test
@@ -25,6 +25,6 @@ spring:
       fetchsize: 1000
   batch:
     jdbc:
-      # ????????????????????
+      # メタテーブルの初期化を常に行うように設定
       initialize-schema: always
 
